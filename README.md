@@ -7,6 +7,5 @@
 - React and React-Router-Dom
 - Axios
 - ReCharts
-- Read The Doc
 
 ## Prerequisites
