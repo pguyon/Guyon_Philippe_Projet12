@@ -1,0 +1,33 @@
+.horizontal__nav__wrapper {
+    display: flex;
+    height: 94px;
+    background: #000000;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 29px;
+    padding-right: 87px;
+    
+}
+
+.horizontal__nav__logo {
+    width: 178px;
+    height: 60.93px;
+    object-fit: cover;
+}
+
+.horizontal__nav__wrapper nav {
+    width: 100%;
+    padding-left: 150px;
+}
+
+.horizontal__nav__wrapper ul {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    list-style-type: none;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+
