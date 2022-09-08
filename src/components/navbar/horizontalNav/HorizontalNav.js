@@ -2,6 +2,11 @@ import React from 'react';
 import './HorizontalNav.css'
 import Logo from '../../../assets/SoprtSee_logo.png'
 
+/**
+ * header template
+ * @returns the SportSee logo and a navigation bar
+ */
+
 const HorizontalNav = () => {
     return (
         <header className='horizontal__nav__wrapper'>
