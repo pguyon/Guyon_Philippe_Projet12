@@ -5,6 +5,12 @@ import Natation from '../../../assets/natation.png'
 import Cycling from '../../../assets/cycling.png'
 import Workout from '../../../assets/workout.png'
 
+/**
+ * Aside template
+ * @returns 4 icons and a text
+ */
+
+
 const VerticalNav = () => {
     const icons = [
         Yoga,
@@ -13,11 +19,13 @@ const VerticalNav = () => {
         Workout
     ]
     return (
-        <aside>
-            {icons.map((icon, index) => (
-                <img key={index} src={icon} alt='' />
-            ))}
-            <span>Copyright, SportSee 2020</span>
+        <aside className='vertical__wrapper'>
+            <div className='vertical__img'>
+                {icons.map((icon, index) => (
+                    <img key={index} src={icon} alt='' />
+                ))}
+            </div>
+            <div className='vertical__span'>Copyright, SportSee 2020</div>
         </aside>
     );
 }

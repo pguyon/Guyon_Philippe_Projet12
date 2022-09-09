@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: horizontalNav/HorizontalNav.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,49 +17,48 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: horizontalNav/HorizontalNav.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>SportSee</h1>
-<p><img src="src/assets/SoprtSee_logo.png" alt="SoprtSee Logo"></p>
-<h2>Build with</h2>
-<ul>
-<li>React and React-Router-Dom</li>
-<li>Axios</li>
-<li>ReCharts</li>
-<li>JSdoc</li>
-</ul>
-<h2>Prerequisites</h2>
-<ul>
-<li><a href="https://www.npmjs.com/">NPM</a></li>
-<li><a href="https://nodejs.org/en/">NodeJS</a></li>
-</ul></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import './HorizontalNav.css'
+import Logo from '../../../assets/SoprtSee_logo.png'
+
+/**
+ * header template
+ * @returns the SportSee logo and a navigation bar
+ */
+
+const HorizontalNav = () => {
+    return (
+        &lt;header className='horizontal__nav__wrapper'>
+            &lt;img className='horizontal__nav__logo'
+                src={Logo}
+                alt='SportSee Logo'/>
+            &lt;nav>
+                &lt;ul>
+                    &lt;li>Accueil&lt;/li>
+                    &lt;li>profil&lt;/li>
+                    &lt;li>Réglages&lt;/li>
+                    &lt;li>Communauté&lt;/li>
+                &lt;/ul>
+            &lt;/nav>
+
+
+        &lt;/header>
+    );
+}
+
+export default HorizontalNav;
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
