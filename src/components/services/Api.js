@@ -36,3 +36,20 @@ const instance = axios.create({
       };
     }
   };
+
+
+  export const getUserActivity = async (id) => {
+    try {
+      if (mockedDatas) {
+        const response = await USER_ACTIVITY.filter((x) => x.userId === +id);
+        return {
+          data: response[0],
+        };
+      } else {
+        const response = await instance.get(`/${id}/activity`);
+        return response.data;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }

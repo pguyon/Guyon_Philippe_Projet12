@@ -1,0 +1,23 @@
+.activity__wrapper {
+    width: 835px;
+    height: 320px;
+    margin-top: 77px;
+}
+
+.hover__activity {
+    background: red;
+    padding: 5px;
+    color: white;
+    width: 39px;
+    height: 63px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hover__activity p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 7px;
+    line-height: 24px;
+    text-align: center;
+}
