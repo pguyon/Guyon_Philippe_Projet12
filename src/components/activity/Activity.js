@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './Activity.css';
 import {
     BarChart,
@@ -11,23 +11,13 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 import {getUserActivity} from '../services/Api';
+import useFetch from '../services/useFetch';
+import Loader from '../loader/Loader';
+
 
 
 const Activity = ({userId}) => {
-    const [activity, setActivity] = useState({});
-    const [isLoading, setIsloading] = useState(false)
-
-
-    useEffect(() => {
-        getUserActivity(userId).then(response => {
-            return response.data
-        }).then(data => {
-            setActivity(data)
-            setIsloading(true)
-        })
-    }, [userId])
-
-    
+    const { response, loading, error } = useFetch(getUserActivity(userId))
 
     function CustomTooltip({payload, active}) {
         if (active) {
@@ -57,7 +47,15 @@ const Activity = ({userId}) => {
         return formatedDate.toLocaleDateString('fr-FR', options)
     }
 
-    if(isLoading) {
+    if(error){
+        console.log(error);
+    }
+
+    if(loading){
+        return <Loader />
+    }
+  
+    if(response) {
         return (
             <section className='activity__wrapper'>
                 <div className='activity__title'>
@@ -67,7 +65,7 @@ const Activity = ({userId}) => {
                     <BarChart width='100%' height='75%'
                         barGap={8}
                         data={
-                            activity.sessions
+                            response.data.sessions
                         }
                         margin={
                             {
