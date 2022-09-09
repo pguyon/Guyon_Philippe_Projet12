@@ -8,6 +8,8 @@ import Workout from '../../../assets/workout.png'
 /**
  * Aside template
  * @returns 4 icons and a text
+ * @author Philippe Guyon
+ * @version 1.0
  */
 
 

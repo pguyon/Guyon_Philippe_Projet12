@@ -5,6 +5,8 @@ import Logo from '../../../assets/SoprtSee_logo.png'
 /**
  * header template
  * @returns the SportSee logo and a navigation bar
+ * @author Philippe Guyon
+ * @version 1.0
  */
 
 const HorizontalNav = () => {
