@@ -4,6 +4,7 @@ import VerticalNav from './components/navbar/verticalNav/VerticalNav';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './pages/home/Home';
 import Dashboard from './pages/dashboard/Dashboard';
+import Error from './pages/404/Error';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Routes>
                       <Route path="/" element={<Home />}/>
                       <Route path="/dashboard/:id" element={<Dashboard />}/>
+                      <Route path='*' element={<Error />} />
                     </Routes>
                 </BrowserRouter>
             </div>

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import './Dashboard.css'
 import {useParams} from 'react-router-dom';
 import {getUserInfo} from '../../components/services/Api';
+import Error from '../404/Error';
+
 
 const Dashboard = () => {
     const [user, setUser] = useState({});
@@ -17,8 +19,12 @@ const Dashboard = () => {
         })
     }, [id])
 
+    
+
     if (!isLoading) {
         return <p></p>
+    } else if(user === undefined) {
+        return <Error />
     } else {
         return (
             <main className="dashboard__wrapper">
