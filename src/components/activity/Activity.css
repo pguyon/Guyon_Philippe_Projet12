@@ -2,6 +2,9 @@
     width: 835px;
     height: 320px;
     margin-top: 77px;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
 }
 
 .hover__activity {
@@ -12,6 +15,7 @@
     height: 63px;
     display: flex;
     flex-direction: column;
+    border: none;
 }
 
 .hover__activity p {

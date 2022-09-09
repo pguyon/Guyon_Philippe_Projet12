@@ -83,7 +83,8 @@ const Activity = ({userId}) => {
                                     margin: '0'
                                 }
                             }/>
-                        <XAxis tickMargin={15}
+                        <XAxis
+                            tickMargin={10}
                             tickLine={false}
                             padding={
                                 {

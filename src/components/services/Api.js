@@ -30,7 +30,7 @@ const instance = axios.create({
     } catch (error) {
       console.log('API unavailable. Datas coming from mock.');
       mockedDatas = true;
-      const mockedResponse = await USER_MAIN_DATA.filter((x) => x.id === +id);
+      const mockedResponse =  USER_MAIN_DATA.filter((x) => x.id === +id);
       return {
         data: mockedResponse[0],
       };
@@ -41,7 +41,7 @@ const instance = axios.create({
   export const getUserActivity = async (id) => {
     try {
       if (mockedDatas) {
-        const response = await USER_ACTIVITY.filter((x) => x.userId === +id);
+        const response =  USER_ACTIVITY.filter((x) => x.userId === +id);
         return {
           data: response[0],
         };
