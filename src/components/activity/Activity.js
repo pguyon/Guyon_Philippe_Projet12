@@ -59,8 +59,10 @@ const Activity = ({userId}) => {
 
     if(isLoading) {
         return (
-            <div className='activity__wrapper'>
-                <h3>Activité quotidienne</h3>
+            <section className='activity__wrapper'>
+                <div className='activity__title'>
+                    <h3>Activité quotidienne</h3>
+                </div>
                 <ResponsiveContainer width="100%" height="80%">
                     <BarChart width='100%' height='75%'
                         barGap={8}
@@ -145,7 +147,7 @@ const Activity = ({userId}) => {
                             }/>
                     </BarChart>
                 </ResponsiveContainer>
-            </div>
+            </section>
         );
     }
   
