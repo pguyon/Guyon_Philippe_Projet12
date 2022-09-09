@@ -47,3 +47,47 @@ export const getUserActivity = async (id) => {
         }
     }
 }
+
+
+
+export const getUserAverage = async (id) => {
+    try {
+        const response = instance.get(`/${id}/average-sessions`);
+        if(response.status === 200) {
+            mockDatas = false
+            return response.data;
+        } else {
+            mockDatas = true
+        }
+    } catch (error) {
+        console.log('API unavailable. Datas coming from mock.');
+        if(mockDatas){
+            const response = USER_AVERAGE_SESSIONS.filter((x) => x.userId === +id);
+            return {
+                data: response[0]
+            }
+        }
+    }
+}
+
+
+
+export const getUserPerformence = async (id) => {
+    try {
+        const response = instance.get(`/${id}/performence`);
+        if(response.status === 200) {
+            mockDatas = false;
+            return response.data;
+        } else {
+            mockDatas = true;
+        }
+    } catch (error) {
+        console.log('API unavailable. Datas coming from mock.');
+        if(mockDatas){
+            const response = USER_PERFORMANCE.filter((x) => x.userId === +id);
+            return {
+                data: response[0]
+            }
+        }
+    }
+}
