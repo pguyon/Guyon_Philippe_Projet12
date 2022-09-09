@@ -11,5 +11,5 @@
 
 ## Prerequisites
 
-- NPM [npm documentation](https://www.npmjs.com/)
-- NodeJS [NodeJS documentation](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
+- [NodeJS](https://nodejs.org/en/)
