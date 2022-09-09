@@ -3,8 +3,8 @@ import './Dashboard.css'
 import {useParams} from 'react-router-dom';
 import {getUserInfo} from '../../components/services/Api';
 import Error from '../404/Error';
-
 import Activity from '../../components/activity/Activity';
+import Loader from '../../components/loader/Loader';
 
 const Dashboard = () => {
     const [user, setUser] = useState({});
@@ -23,7 +23,7 @@ const Dashboard = () => {
     
 
     if (!isLoading) {
-        return <p></p>
+        return <Loader />
     } else if(user === undefined) {
         return <Error />
     } else {

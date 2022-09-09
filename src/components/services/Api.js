@@ -1,55 +1,49 @@
 import axios from "axios";
-import {
-    USER_MAIN_DATA,
-    USER_ACTIVITY,
-    USER_AVERAGE_SESSIONS,
-    USER_PERFORMANCE,
-  } from '../../data/MockData.js';
+import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../../data/MockData.js';
 
 
-
-const instance = axios.create({
-    baseURL: 'http://localhost:3000/user',
-    method: 'GET',
-  });
+const instance = axios.create({baseURL: 'http://localhost:3000/user', method: 'GET'});
 
 
-  let mockedDatas = null;
+let mockDatas = null;
 
 
-  export const getUserInfo = async (id) => {
+export const getUserInfo = async (id) => {
     try {
-      const response = await instance.get(`/${id}`);
-      if (response.status === 200) {
-        console.log('API working');
-        mockedDatas = false;
-        return response.data;
-      } else {
-        mockedDatas = true;
-      }
+        const response = await instance.get(`/${id}`);
+        if (response.status === 200) {
+            console.log('API working');
+            mockDatas = false;
+            return response.data;
+        } else {
+            mockDatas = true;
+        }
     } catch (error) {
-      console.log('API unavailable. Datas coming from mock.');
-      mockedDatas = true;
-      const mockedResponse =  USER_MAIN_DATA.filter((x) => x.id === +id);
-      return {
-        data: mockedResponse[0],
-      };
+        console.log('API unavailable. Datas coming from mock.');
+        mockDatas = true;
+        const mockResponse = USER_MAIN_DATA.filter((x) => x.id === +id);
+        return {data: mockResponse[0]};
     }
-  };
+};
 
 
-  export const getUserActivity = async (id) => {
+
+
+export const getUserActivity = async (id) => {
     try {
-      if (mockedDatas) {
-        const response =  USER_ACTIVITY.filter((x) => x.userId === +id);
-        return {
-          data: response[0],
-        };
-      } else {
         const response = await instance.get(`/${id}/activity`);
-        return response.data;
-      }
+        if (response.status === 200) {
+            mockDatas = false
+            return response.data;
+        } else {
+            mockDatas = true;
+        }
     } catch (error) {
-      console.log(error);
+        console.log('API unavailable. Datas coming from mock.');
+
+        if (mockDatas) {
+            const response = USER_ACTIVITY.filter((x) => x.userId === +id);
+            return {data: response[0]}
+        }
     }
-  }
+}
