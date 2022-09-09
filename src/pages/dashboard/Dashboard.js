@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import './Dashboard.css'
-import { useParams } from 'react-router-dom';
-import { getUserInfo } from '../../components/services/Api';
+import {useParams} from 'react-router-dom';
+import {getUserInfo} from '../../components/services/Api';
 
 const Dashboard = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsloading] = useState(false)
-    let { id } = useParams()
+    let {id} = useParams()
 
     useEffect(() => {
         getUserInfo(id).then((response) => {
@@ -17,12 +17,12 @@ const Dashboard = () => {
         })
     }, [id])
 
-    if(!isLoading){
+    if (!isLoading) {
         return <p></p>
-    }else {
+    } else {
         return (
             <main className="dashboard__wrapper">
-              <h1>Bonjour {user.userInfos['firstName']}</h1>
+                <h1>Bonjour <span>{user.userInfos['firstName']}</span> </h1>
             </main>
         );
     }

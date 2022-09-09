@@ -3,4 +3,16 @@
     width: calc(100vw - 117px);
     height: calc(100vh - 91px);
     margin-left: 117px;
+    padding: 68px 90px 86px 107px;
+}
+
+.dashboard__wrapper h1, .dashboard__wrapper span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+}
+
+.dashboard__wrapper span {
+    color: red;
 }
