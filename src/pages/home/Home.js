@@ -1,12 +1,24 @@
 import React from 'react';
 import './Home.css'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Karl from '../../assets/karl.png'
+import Cecilia from '../../assets/cecilia.png'
 
 const Home = () => {
     return (
         <main className='home__wrapper'>
-            <Link to="/dashboard/12">Lien vers l'id 12</Link>
-            <Link to="/dashboard/18">Lien vers l'id 13</Link>
+            <div className='home__content'>
+                <Link to="/dashboard/12">
+                    <img src={Karl}
+                        alt='Karl avatar'/>
+                </Link>
+            </div>
+            <div className='home__content'>
+                <Link to="/dashboard/18">
+                    <img src={Cecilia}
+                        alt='Cecilia avatar'/>
+                </Link>
+            </div>
         </main>
     );
 }
