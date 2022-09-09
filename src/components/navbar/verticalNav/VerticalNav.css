@@ -1,14 +1,16 @@
 .vertical__wrapper {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    left: 0;
     width: 117px;
-    height: 850px;
-    background: #000000;
-    color: #FFFFFF;
-    text-align: center;
-    padding-top: 165px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #000 ;
 }
 
-.vertical__img {
-    margin-bottom: 164px;
+.vertical__nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,9 +24,12 @@
 
 
 .vertical__span {
-    transform: rotate(-90deg) translateY(-50%);
+    position: absolute;
+    bottom: 128px;
+    left: 0;
+    width: 138px;
+    color: #FFFFFF;
     font-weight: 500;
     font-size: 12px;
-    line-height: 24px;
-    width: 138px;
+    transform: rotate(-90deg) translateY(-50%);
 }

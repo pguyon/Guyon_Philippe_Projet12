@@ -22,11 +22,11 @@ const VerticalNav = () => {
     ]
     return (
         <aside className='vertical__wrapper'>
-            <div className='vertical__img'>
+            <nav className='vertical__nav'>
                 {icons.map((icon, index) => (
                     <img key={index} src={icon} alt='' />
                 ))}
-            </div>
+            </nav>
             <div className='vertical__span'>Copyright, SportSee 2020</div>
         </aside>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import './HorizontalNav.css'
 import Logo from '../../../assets/SoprtSee_logo.png'
+import {Link} from 'react-router-dom';
 
 /**
  * header template
@@ -17,9 +18,13 @@ const HorizontalNav = () => {
                 alt='SportSee Logo'/>
             <nav>
                 <ul>
-                    <li>Accueil</li>
+                    <li>
+                        <Link to='/'>
+                            Accueil
+                        </Link>
+                    </li>
                     <li>profil</li>
-                    <li>Réglages</li>
+                    <li>Réglage</li>
                     <li>Communauté</li>
                 </ul>
             </nav>

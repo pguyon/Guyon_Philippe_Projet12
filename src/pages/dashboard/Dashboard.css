@@ -1,0 +1,6 @@
+.dashboard__wrapper {
+    position: relative;
+    width: calc(100vw - 117px);
+    height: calc(100vh - 91px);
+    margin-left: 117px;
+}

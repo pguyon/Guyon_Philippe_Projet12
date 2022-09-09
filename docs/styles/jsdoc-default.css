@@ -291,8 +291,8 @@ tr > th:last-child { border-right: 1px solid #ddd; }
     display: block;
     padding: 4px 12px;
     margin: 0;
-    background-color: #fff;
-    color: #4D4E53;
+    background-color: #000;
+    color: #ebebeb;
 }
 
 .prettyprint code span.line
@@ -334,7 +334,7 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 }
 
 .params .name, .props .name, .name code {
-    color: #4D4E53;
+    color: #cfcfcf;
     font-family: Consolas, Monaco, 'Andale Mono', monospace;
     font-size: 100%;
 }
@@ -354,5 +354,5 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 }
 
 .disabled {
-    color: #454545;
+    color: #d6bbbb;
 }
