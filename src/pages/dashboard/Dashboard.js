@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './Dashboard.css'
 import {useParams} from 'react-router-dom';
-import {getUserInfo} from '../../components/services/Api';
+import {getUserInfo} from '../../services/Api';
+import { userDataModel } from '../../services/UserDataModel';
 import Error from '../404/Error';
 import Activity from '../../components/activity/Activity';
 import Loader from '../../components/loader/Loader';
@@ -12,15 +13,13 @@ const Dashboard = () => {
     let {id} = useParams()
 
     useEffect(() => {
-        getUserInfo(id).then((response) => {
-            return response.data
-        }).then(data => {
-            setUser(data)
-            setIsloading(true)
-        })
+            getUserInfo(id).then((response) => {
+                const formattedUserData = new userDataModel(response.data);
+                setUser(formattedUserData)
+                setIsloading(true)
+                return response.data
+            })
     }, [id])
-
-   
 
     if (!isLoading) {
         return <Loader />

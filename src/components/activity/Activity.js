@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Activity.css';
 import {
     BarChart,
@@ -10,14 +10,26 @@ import {
     ResponsiveContainer
 } from 'recharts';
 import PropTypes from 'prop-types';
-import {getUserActivity} from '../services/Api';
-import useFetch from '../services/useFetch';
+import {getUserActivity} from '../../services/Api';
+import { userDataActivityModel } from '../../services/UserDataModel';
 import Loader from '../loader/Loader';
 
 
 
 const Activity = ({userId}) => {
-    const { response, loading, error } = useFetch(getUserActivity(userId))
+    const [userDataActivity , setUserDataActivity] = useState({})
+    const [isLoading, setIsloading] = useState(false)
+
+    useEffect(() => {
+        getUserActivity(userId).then((response) => {
+            const formattedUserDataActivity = new userDataActivityModel(response.data);
+            setUserDataActivity(formattedUserDataActivity);
+            setIsloading(true);
+            return response.data 
+        })
+    })
+
+    // const { response, loading, error } = useFetch(getUserActivity(userId))
 
     function CustomTooltip({payload, active}) {
         if (active) {
@@ -47,26 +59,24 @@ const Activity = ({userId}) => {
         return formatedDate.toLocaleDateString('fr-FR', options)
     }
 
-    if(error){
-        console.log(error);
-    }
+//    console.log(userDataActivity);
 
-    if(loading){
+    if(!isLoading){
         return <Loader />
     }
   
-    if(response) {
+    else {
         return (
             <section className='activity__wrapper'>
                 <div className='activity__title'>
                     <h3>Activité quotidienne</h3>
-                    <div class='wrapper'>
-                        <div class='content'>
-                            <div class='black__bullet'></div>
+                    <div className='wrapper'>
+                        <div className='content'>
+                            <div className='black__bullet'></div>
                             <span>Poids (kg)</span>
                         </div>
-                        <div class='content'>
-                            <div class='red__bullet'></div>
+                        <div className='content'>
+                            <div className='red__bullet'></div>
                             <span>Calories brûlées (kCal)</span>
                         </div> 
                     </div>
@@ -75,7 +85,7 @@ const Activity = ({userId}) => {
                     <BarChart width='100%' height='75%'
                         barGap={8}
                         data={
-                            response.data.sessions
+                            userDataActivity.sessions
                         }
                         margin={
                             {
