@@ -20,7 +20,7 @@ const Dashboard = () => {
         })
     }, [id])
 
-    
+   
 
     if (!isLoading) {
         return <Loader />
@@ -32,6 +32,7 @@ const Dashboard = () => {
                 <h1>Bonjour <span>{user.userInfos['firstName']}</span></h1>
                 <p>Félicitation! Vous avez explosé vos objectifs hier 👋 </p>
                 <Activity userId={user.id}/>
+                {/* <h1>{user.keyData.calorieCount}</h1> */}
             </main>
         );
     }

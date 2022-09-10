@@ -60,6 +60,16 @@ const Activity = ({userId}) => {
             <section className='activity__wrapper'>
                 <div className='activity__title'>
                     <h3>Activité quotidienne</h3>
+                    <div class='wrapper'>
+                        <div class='content'>
+                            <div class='black__bullet'></div>
+                            <span>Poids (kg)</span>
+                        </div>
+                        <div class='content'>
+                            <div class='red__bullet'></div>
+                            <span>Calories brûlées (kCal)</span>
+                        </div> 
+                    </div>
                 </div>
                 <ResponsiveContainer width="100%" height="80%">
                     <BarChart width='100%' height='75%'

@@ -11,6 +11,9 @@
 
 .activity__title {
     margin-bottom: 35px;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
 }
 
 .activity__title h3 {
@@ -39,3 +42,41 @@
     line-height: 24px;
     text-align: center;
 }
+
+.wrapper {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+  }
+  
+.black__bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+    margin-right: 10px
+  }
+  
+.red__bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: red;
+    margin-right: 10px
+  }
+  
+.content span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #74798C;
+  }
