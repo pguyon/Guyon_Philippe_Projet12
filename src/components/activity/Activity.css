@@ -1,82 +1,82 @@
 .activity__wrapper {
-    width: 835px;
-    height: 320px;
-    margin-top: 77px;
-    background: #FBFBFB;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-    border-radius: 5px;
-    padding-top: 24px;
-    padding-left: 32px;
+  width: 835px;
+  height: 320px;
+  margin-top: 77px;
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  padding-top: 24px;
+  padding-left: 32px;
 }
 
 .activity__title {
-    margin-bottom: 35px;
-    display:flex;
-    align-items: center;
-    justify-content:space-between;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .activity__title h3 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 24px;
-    color: #20253A;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #20253a;
 }
 
 .hover__activity {
-    background: red;
-    padding: 5px;
-    color: white;
-    width: 39px;
-    height: 63px;
-    display: flex;
-    flex-direction: column;
-    border: none;
+  background: red;
+  padding: 5px;
+  color: white;
+  width: 39px;
+  height: 63px;
+  display: flex;
+  flex-direction: column;
+  border: none;
 }
 
 .hover__activity p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 7px;
-    line-height: 24px;
-    text-align: center;
+  margin: 0;
+  font-weight: 500;
+  font-size: 7px;
+  line-height: 24px;
+  text-align: center;
 }
 
 .wrapper {
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: auto;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+}
+
 .black__bullet {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: black;
-    margin-right: 10px
-  }
-  
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: black;
+  margin-right: 10px;
+}
+
 .red__bullet {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: red;
-    margin-right: 10px
-  }
-  
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: red;
+  margin-right: 10px;
+}
+
 .content span {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    color: #74798C;
-  }
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #74798c;
+}
