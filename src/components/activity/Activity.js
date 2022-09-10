@@ -29,8 +29,6 @@ const Activity = ({userId}) => {
         })
     })
 
-    // const { response, loading, error } = useFetch(getUserActivity(userId))
-
     function CustomTooltip({payload, active}) {
         if (active) {
             return (
