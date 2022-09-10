@@ -2,7 +2,10 @@ import axios from "axios";
 import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../data/MockData';
 
 
-const instance = axios.create({baseURL: 'http://localhost:3000/user', method: 'GET'});
+const instance = axios.create(
+    {baseURL: 'http://localhost:3000/user',
+     method: 'GET'
+    });
 
 
 let mockDatas = null;

@@ -11,13 +11,12 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 import {getUserActivity} from '../../services/Api';
-import { userDataActivityModel } from '../../services/UserDataModel';
+import {userDataActivityModel} from '../../services/UserDataModel';
 import Loader from '../loader/Loader';
 
 
-
 const Activity = ({userId}) => {
-    const [userDataActivity , setUserDataActivity] = useState({})
+    const [userDataActivity, setUserDataActivity] = useState({})
     const [isLoading, setIsloading] = useState(false)
 
     useEffect(() => {
@@ -25,9 +24,9 @@ const Activity = ({userId}) => {
             const formattedUserDataActivity = new userDataActivityModel(response.data);
             setUserDataActivity(formattedUserDataActivity);
             setIsloading(true);
-            return response.data 
+            return response.data
         })
-    })
+    }, [userId])
 
     function CustomTooltip({payload, active}) {
         if (active) {
@@ -57,13 +56,11 @@ const Activity = ({userId}) => {
         return formatedDate.toLocaleDateString('fr-FR', options)
     }
 
-//    console.log(userDataActivity);
+    //    console.log(userDataActivity);
 
-    if(!isLoading){
-        return <Loader />
-    }
-  
-    else {
+    if (!isLoading) {
+        return <Loader/>
+    } else {
         return (
             <section className='activity__wrapper'>
                 <div className='activity__title'>
@@ -76,7 +73,7 @@ const Activity = ({userId}) => {
                         <div className='content'>
                             <div className='red__bullet'></div>
                             <span>Calories brûlées (kCal)</span>
-                        </div> 
+                        </div>
                     </div>
                 </div>
                 <ResponsiveContainer width="100%" height="80%">
@@ -101,8 +98,7 @@ const Activity = ({userId}) => {
                                     margin: '0'
                                 }
                             }/>
-                        <XAxis
-                            tickMargin={10}
+                        <XAxis tickMargin={10}
                             tickLine={false}
                             padding={
                                 {
@@ -166,10 +162,9 @@ const Activity = ({userId}) => {
             </section>
         );
     }
-  
-}
 
-Activity.propTypes = {
+}
+ Activity.propTypes = {
     userId: PropTypes.number.isRequired,
     payload: PropTypes.object,
     active: PropTypes.bool
