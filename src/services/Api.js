@@ -52,7 +52,7 @@ export const getUserActivity = async (id) => {
 
 export const getUserAverage = async (id) => {
   try {
-    const response = instance.get(`/${id}/average-sessions`);
+    const response = await instance.get(`/${id}/average-sessions`);
     if (response.status === 200) {
       mockDatas = false;
       return response.data;
@@ -70,9 +70,9 @@ export const getUserAverage = async (id) => {
   }
 };
 
-export const getUserPerformence = async (id) => {
+export const getUserPerformance = async (id) => {
   try {
-    const response = instance.get(`/${id}/performence`);
+    const response = await instance.get(`/${id}/performance`);
     if (response.status === 200) {
       mockDatas = false;
       return response.data;

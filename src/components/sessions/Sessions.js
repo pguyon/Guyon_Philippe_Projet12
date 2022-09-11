@@ -1,76 +1,74 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import "./Sessions.css";
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
+import { getUserAverage } from "../../services/Api";
+import { userDataAverageModel } from "../../services/UserDataModel";
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+const Sessions = ({ userId }) => {
+  const [userDataSession, setUserDataSession] = useState({});
+  const [isLoading, setIsloading] = useState(false);
 
-const Sessions = () => {
-  return (
-    <LineChart
-      className="linechart"
-      width={258}
-      height={263}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}>
-      <XAxis dataKey="name" />
-      <Tooltip />
-      <Line
-        type="monotone"
-        dataKey="pv"
-        stroke="#8884d8"
-        activeDot={{ r: 8 }}
-      />
-    </LineChart>
-  );
+  useEffect(() => {
+    getUserAverage(userId).then((response) => {
+      const formattedUserDataSession = new userDataAverageModel(response.data);
+      setUserDataSession(formattedUserDataSession);
+      setIsloading(true);
+      return response.data;
+    });
+  }, [userId]);
+
+  function CustomTooltip({ payload, active }) {
+    return (
+      <div className="tooltip">
+        {active && <p>{`${payload[0].value}`} min</p>}
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <LineChart
+        width={258}
+        height={263}
+        className="container"
+        data={userDataSession.sessions}
+        margin={{ top: 15, left: 15, right: 15, bottom: 10 }}>
+        <XAxis
+          dataKey="day"
+          stroke="#FFF"
+          tickLine={false}
+          axisLine={false}
+          tick={{
+            fontSize: 12,
+            fontWeight: 500,
+          }}
+          tickFormatter={(item) => {
+            const daysInLetters = ["L", "M", "M", "J", "V", "S", "D"];
+            return `${daysInLetters[item - 1]}`;
+          }}
+        />
+        <YAxis hide={true} padding={{ top: 80, bottom: 40 }} />
+        <Tooltip content={<CustomTooltip />} cursor={false} />
+        <Line
+          type="monotone"
+          dataKey="sessionLength"
+          stroke="#FFF"
+          strokeWidth={1.5}
+          dot={false}
+          activeDot={{
+            stroke: "#FFF",
+            strokeOpacity: 0.4,
+            strokeWidth: 10,
+          }}
+        />
+      </LineChart>
+    );
+  }
+};
+
+Sessions.propTypes = {
+  userId: PropTypes.number.isRequired,
 };
 
 export default Sessions;

@@ -1,3 +1,19 @@
-.linechart {
+.container {
   margin-top: 30px;
+  background: red;
+  border-radius: 5px;
+}
+
+.tooltip {
+  background: #fff;
+  width: 60px;
+  text-align: center;
+  border: none;
+}
+
+.tooltip p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
 }

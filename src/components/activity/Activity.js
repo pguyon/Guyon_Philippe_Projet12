@@ -29,6 +29,8 @@ const Activity = ({ userId }) => {
     });
   }, [userId]);
 
+  // console.log(userDataActivity);
+
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (
