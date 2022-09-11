@@ -6,6 +6,7 @@ import { userDataModel } from "../../services/UserDataModel";
 import Error from "../404/Error";
 import Activity from "../../components/activity/Activity";
 import Loader from "../../components/loader/Loader";
+import Sessions from "../../components/sessions/Sessions";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -33,7 +34,7 @@ const Dashboard = () => {
         </h1>
         <p>Félicitation! Vous avez explosé vos objectifs hier 👋 </p>
         <Activity userId={user.id} />
-        {/* <h1>{user.keyData.calorieCount}</h1> */}
+        <Sessions userId={user.id} />
       </main>
     );
   }
