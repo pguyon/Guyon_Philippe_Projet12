@@ -44,11 +44,11 @@ const Sessions = ({ userId }) => {
             fontWeight: 500,
           }}
           tickFormatter={(item) => {
-            const daysInLetters = ["L", "M", "M", "J", "V", "S", "D"];
-            return `${daysInLetters[item - 1]}`;
+            const days = ["L", "M", "M", "J", "V", "S", "D"];
+            return `${days[item - 1]}`;
           }}
         />
-        <YAxis hide={true} padding={{ top: 80, bottom: 40 }} />
+        <YAxis hide={true} padding={{ top: 80, bottom: 30 }} />
         <Tooltip content={<CustomTooltip />} cursor={false} />
         <Line
           type="monotone"
