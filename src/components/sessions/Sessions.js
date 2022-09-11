@@ -69,6 +69,8 @@ const Sessions = ({ userId }) => {
 
 Sessions.propTypes = {
   userId: PropTypes.number.isRequired,
+  payload: PropTypes.object,
+  active: PropTypes.bool,
 };
 
 export default Sessions;
