@@ -55,7 +55,20 @@ const Sessions = ({ userId }) => {
             }}
           />
           <YAxis hide={true} padding={{ top: 80, bottom: 30 }} />
-          <Tooltip content={<CustomTooltip />} cursor={false} />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{
+              stroke: "#000",
+              strokeOpacity: 0.1,
+              strokeWidth: 40,
+            }}
+            labelStyle={{
+              display: "none",
+            }}
+            itemStyle={{
+              color: "#000",
+            }}
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
