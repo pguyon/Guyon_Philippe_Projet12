@@ -5,7 +5,6 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
 import { getUserPerformance } from "../../services/Api";
@@ -36,30 +35,25 @@ const Performance = ({ userId }) => {
     };
   });
 
-  // console.log(activities);
-  console.log(userPerformance);
-
   if (isLoading) {
     return (
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%">
         <RadarChart
-          cx="50%"
-          cy="50%"
-          outerRadius="80%"
+          outerRadius="62%"
           data={formattedData.reverse()}
           className="radar">
-          <PolarGrid />
+          <PolarGrid radialLines={false} />
           <PolarAngleAxis
+            dy={2}
             dataKey="activity"
             stroke="#FFF"
             tickLine={false}
             tick={{
-              fontSize: 8,
+              fontSize: 12,
               fontWeight: 500,
             }}
           />
-          <PolarRadiusAxis />
-          <Radar dataKey="value" fill="red" fillOpacity={0.6} />
+          <Radar dataKey="value" fill="red" stroke="red" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
     );
