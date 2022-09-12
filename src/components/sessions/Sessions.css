@@ -17,3 +17,20 @@
   font-size: 14px;
   line-height: 24px;
 }
+
+.sessions__title {
+  position: absolute;
+  top: 29px;
+  left: 34px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+  margin-top: 15px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1400px) {
+  .sessions__title {
+    font-size: 12px;
+  }
+}
