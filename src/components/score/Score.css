@@ -1,5 +1,5 @@
 .radial {
-  background: #fbfbfb;
+  background: #535353;
   border-radius: 5px;
   margin-top: 30px;
   position: relative;
@@ -13,8 +13,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
   background-color: #fff;
   font-weight: 500;

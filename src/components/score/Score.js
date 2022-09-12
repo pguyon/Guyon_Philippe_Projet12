@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import "./Score.css";
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
 import { getUserInfo } from "../../services/Api";
@@ -37,13 +37,13 @@ const Score = ({ userId }) => {
           <br /> de votre <br /> objectif
         </div>
         <ResponsiveContainer width="100%" height="100%">
-          <PieChart className="radial">
+          <PieChart>
             <Pie
               data={formatedData}
               dataKey="value"
               nameKey="name"
-              cx="50%"
-              cy="50%"
+              //   cx="50%"
+              //   cy="50%"
               fill="#FF0000"
               innerRadius="65%"
               outerRadius="75%"

@@ -35,7 +35,7 @@
 .dashboard__data > * {
   position: relative;
   height: 263px;
-
+  width: 100%;
   max-width: 258px;
   margin-right: 30px;
 }
