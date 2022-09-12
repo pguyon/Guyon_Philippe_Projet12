@@ -7,6 +7,7 @@ import Error from "../404/Error";
 import Activity from "../../components/activity/Activity";
 import Loader from "../../components/loader/Loader";
 import Sessions from "../../components/sessions/Sessions";
+import Performance from "../../components/performance/Performance";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -36,7 +37,7 @@ const Dashboard = () => {
         <Activity userId={user.id} />
         <div className="dashboard__data">
           <Sessions userId={user.id} />
-          <Sessions userId={user.id} />
+          <Performance userId={user.id} />
           <Sessions userId={user.id} />
         </div>
       </main>
