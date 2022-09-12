@@ -1,9 +1,8 @@
 .dashboard__wrapper {
   position: relative;
-  width: 100vw;
   height: 100vh;
   margin-left: 117px;
-  padding: 68px 0 86px 107px;
+  padding: 68px 0 0 107px;
 }
 
 .dashboard__wrapper h1,
