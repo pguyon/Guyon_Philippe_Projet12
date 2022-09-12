@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Performance.css";
+import PropTypes from "prop-types";
 import {
   Radar,
   RadarChart,
@@ -59,5 +60,9 @@ const Performance = ({ userId }) => {
     );
   }
 };
+
+Performance.propTypes = {
+  userId: PropTypes.number.isRequired,
+}
 
 export default Performance;

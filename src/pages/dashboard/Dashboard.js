@@ -7,6 +7,7 @@ import Error from "../404/Error";
 import Activity from "../../components/activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
+import Score from "../../components/score/Score";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -30,15 +31,16 @@ const Dashboard = () => {
     return (
       <main className="dashboard__wrapper">
         <h1>
-          Bonjour <span>{user.userInfos["firstName"]}</span>
+          Bonjour{" "}
+          <span className="dashboard__span">{user.userInfos["firstName"]}</span>
         </h1>
         <p>Félicitation! Vous avez explosé vos objectifs hier 👋 </p>
         <Activity userId={user.id} />
-        <div className="dashboard__data">
+        <section className="dashboard__data">
           <Sessions userId={user.id} />
           <Performance userId={user.id} />
-          <Sessions userId={user.id} />
-        </div>
+          <Score userId={user.id} />
+        </section>
       </main>
     );
   }
