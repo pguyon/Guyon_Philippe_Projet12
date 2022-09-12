@@ -5,7 +5,6 @@ import { getUserInfo } from "../../services/Api";
 import { userDataModel } from "../../services/UserDataModel";
 import Error from "../404/Error";
 import Activity from "../../components/activity/Activity";
-import Loader from "../../components/loader/Loader";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
 
@@ -24,7 +23,7 @@ const Dashboard = () => {
   }, [id]);
 
   if (!isLoading) {
-    return <Loader />;
+    return <p></p>;
   } else if (user === undefined) {
     return <Error />;
   } else {
