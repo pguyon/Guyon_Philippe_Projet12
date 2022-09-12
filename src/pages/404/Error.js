@@ -3,9 +3,9 @@ import "./Error.css";
 
 const Error = () => {
   return (
-    <main>
+    <div>
       <h1>Oops ! Page not found</h1>
-    </main>
+    </div>
   );
 };
 

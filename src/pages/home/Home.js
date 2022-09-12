@@ -6,7 +6,7 @@ import Cecilia from "../../assets/cecilia.png";
 
 const Home = () => {
   return (
-    <main className="home__wrapper">
+    <section className="home__wrapper">
       <div className="home__content">
         <Link to="/dashboard/12">
           <img src={Karl} alt="Karl avatar" />
@@ -17,7 +17,7 @@ const Home = () => {
           <img src={Cecilia} alt="Cecilia avatar" />
         </Link>
       </div>
-    </main>
+    </section>
   );
 };
 
