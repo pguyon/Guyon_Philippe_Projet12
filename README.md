@@ -1,13 +1,12 @@
 # SportSee
 
-![SoprtSee Logo](src/assets/SoprtSee_logo.png)
-
-## Build with
+## Dependencies
 
 - React and React-Router-Dom
 - Axios
 - ReCharts
 - JSdoc
+- Prop-Types
 
 ## Prerequisites
 
