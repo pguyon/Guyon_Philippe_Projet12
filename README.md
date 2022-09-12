@@ -24,3 +24,8 @@ Mobile and tablet versions will come later.
 ### Backend
 
 1- Clone the Backend `git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git`
+2- CD in repository and `npm i` or `npm install` to install all packages
+3- Launch server with `npm start`
+4- Find the Backend `http://localhost:3000/`
+
+If you want more details on Backend go [here](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git)
