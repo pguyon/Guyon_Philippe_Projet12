@@ -18,3 +18,9 @@ Mobile and tablet versions will come later.
 - [ReCharts](https://recharts.org/en-US/)
 - [JSdoc](https://jsdoc.app/)
 - [Prop-Types](https://www.npmjs.com/package/prop-types)
+
+## Installation
+
+### Backend
+
+1- Clone the project git clone 'https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git'
