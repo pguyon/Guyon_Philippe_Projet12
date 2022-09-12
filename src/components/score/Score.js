@@ -42,11 +42,9 @@ const Score = ({ userId }) => {
               data={formatedData}
               dataKey="value"
               nameKey="name"
-              //   cx="50%"
-              //   cy="50%"
               fill="#FF0000"
-              innerRadius="65%"
-              outerRadius="75%"
+              innerRadius="60%"
+              outerRadius="70%"
               startAngle={90}
               endAngle={score ? 90 + score * 360 : 0}
               cornerRadius={50}
