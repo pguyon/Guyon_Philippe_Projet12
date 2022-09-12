@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./Sessions.css";
-import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import { getUserAverage } from "../../services/Api";
 import { userDataAverageModel } from "../../services/UserDataModel";
 
@@ -28,41 +35,41 @@ const Sessions = ({ userId }) => {
 
   if (isLoading) {
     return (
-      <LineChart
-        width={258}
-        height={263}
-        className="container"
-        data={userDataSession.sessions}
-        margin={{ top: 15, left: 15, right: 15, bottom: 10 }}>
-        <XAxis
-          dataKey="day"
-          stroke="#FFF"
-          tickLine={false}
-          axisLine={false}
-          tick={{
-            fontSize: 12,
-            fontWeight: 500,
-          }}
-          tickFormatter={(item) => {
-            const days = ["L", "M", "M", "J", "V", "S", "D"];
-            return `${days[item - 1]}`;
-          }}
-        />
-        <YAxis hide={true} padding={{ top: 80, bottom: 30 }} />
-        <Tooltip content={<CustomTooltip />} cursor={false} />
-        <Line
-          type="monotone"
-          dataKey="sessionLength"
-          stroke="#FFF"
-          strokeWidth={1.5}
-          dot={false}
-          activeDot={{
-            stroke: "#FFF",
-            strokeOpacity: 0.4,
-            strokeWidth: 10,
-          }}
-        />
-      </LineChart>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          className="container"
+          data={userDataSession.sessions}
+          margin={{ top: 15, left: 15, right: 15, bottom: 10 }}>
+          <XAxis
+            dataKey="day"
+            stroke="#FFF"
+            tickLine={false}
+            axisLine={false}
+            tick={{
+              fontSize: 12,
+              fontWeight: 500,
+            }}
+            tickFormatter={(item) => {
+              const days = ["L", "M", "M", "J", "V", "S", "D"];
+              return `${days[item - 1]}`;
+            }}
+          />
+          <YAxis hide={true} padding={{ top: 80, bottom: 30 }} />
+          <Tooltip content={<CustomTooltip />} cursor={false} />
+          <Line
+            type="monotone"
+            dataKey="sessionLength"
+            stroke="#FFF"
+            strokeWidth={1.5}
+            dot={false}
+            activeDot={{
+              stroke: "#FFF",
+              strokeOpacity: 0.4,
+              strokeWidth: 10,
+            }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     );
   }
 };

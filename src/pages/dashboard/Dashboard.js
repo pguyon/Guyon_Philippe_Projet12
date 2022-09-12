@@ -34,7 +34,11 @@ const Dashboard = () => {
         </h1>
         <p>Félicitation! Vous avez explosé vos objectifs hier 👋 </p>
         <Activity userId={user.id} />
-        <Sessions userId={user.id} />
+        <div className="dashboard__data">
+          <Sessions userId={user.id} />
+          <Sessions userId={user.id} />
+          <Sessions userId={user.id} />
+        </div>
       </main>
     );
   }

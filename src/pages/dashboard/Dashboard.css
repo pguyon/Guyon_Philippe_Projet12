@@ -1,26 +1,54 @@
-.dashboard__wrapper, .loading {
-    position: relative;
-    width: calc(100vw - 117px);
-    height: calc(100vh - 91px);
-    margin-left: 117px;
-    padding: 68px 90px 86px 107px;
+.dashboard__wrapper,
+.loading {
+  position: relative;
+  height: 100vh;
+  padding: 68px 0 86px 107px;
 }
 
-.dashboard__wrapper h1, .dashboard__wrapper span {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 24px;
+.dashboard__wrapper h1,
+.dashboard__wrapper span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 24px;
 }
 
 .dashboard__wrapper span {
-    color: red;
+  color: red;
 }
 
 .dashboard__wrapper p {
-    margin-top: 41px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
+  margin-top: 41px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.dashboard__data {
+  display: flex;
+  margin-top: 30px;
+  width: 850px;
+  height: 263px;
+}
+
+.dashboard__data > * {
+  height: 263px;
+  max-width: 258px;
+  margin-right: 30px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .dashboard__wrapper {
+    padding: 20px;
+  }
+  .dashboard__data {
+    max-width: 650px;
+  }
+
+  .dashboard__data > * {
+    max-height: 200px;
+    max-width: 200px;
+    margin-right: 20px;
+  }
 }
