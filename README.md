@@ -23,4 +23,4 @@ Mobile and tablet versions will come later.
 
 ### Backend
 
-1- Clone the project git clone 'https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git'
+1- Clone the Backend `git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git`
