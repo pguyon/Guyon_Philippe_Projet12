@@ -36,15 +36,19 @@ const Dashboard = () => {
           <span className="dashboard__span">{user.userInfos["firstName"]}</span>
         </h1>
         <p>Félicitation! Vous avez explosé vos objectifs hier 👋 </p>
-        <section className="dashboard__data">
-          <Activity userId={user.id} />
-          <div className="dashboard__SePerSc">
-            <Sessions userId={user.id} />
-            <Performance userId={user.id} />
-            <Score userId={user.id} />
+        <div className="dashboard__content">
+          <section className="dashboard__data">
+            <Activity userId={user.id} />
+            <div className="dashboard__SePerSc">
+              <Sessions userId={user.id} />
+              <Performance userId={user.id} />
+              <Score userId={user.id} />
+            </div>
+          </section>
+          <div className="dashboard__nutrition">
+            <Nutrition keyData={user.keyData} />
           </div>
-        </section>
-        <Nutrition keyData={user.keyData} />
+        </div>
       </main>
     );
   }
