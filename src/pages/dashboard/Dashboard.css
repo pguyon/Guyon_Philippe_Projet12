@@ -53,6 +53,12 @@
 
 .dashboard__nutrition {
   width: 258px;
+  height: 640px;
+  margin-top: 77px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -71,5 +77,9 @@
   .dashboard__SePerSc > * {
     max-height: 200px;
     max-width: 200px;
+  }
+
+  .dashboard__nutrition {
+    max-height: 580px;
   }
 }
