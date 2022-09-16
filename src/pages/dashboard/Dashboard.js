@@ -8,6 +8,7 @@ import Activity from "../../components/activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
+import Nutrition from "../../components/Nutrition/Nutrition";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -43,6 +44,7 @@ const Dashboard = () => {
             <Score userId={user.id} />
           </div>
         </section>
+        <Nutrition keyData={user.keyData} />
       </main>
     );
   }

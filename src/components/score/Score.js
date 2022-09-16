@@ -26,8 +26,6 @@ const Score = ({ userId }) => {
     },
   ];
 
-  console.log(score);
-
   if (isLoading) {
     return (
       <section className="radial">

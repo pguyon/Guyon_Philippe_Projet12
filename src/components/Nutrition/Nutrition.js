@@ -1,39 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./Nutrition.css";
-import { getUserInfo } from "../../services/Api";
-import { userDataModel } from "../../services/UserDataModel";
 
-const Nutrition = ({ userId }) => {
-  const [user, setUser] = useState({});
-  const [isLoading, setIsloading] = useState(false);
+const Nutrition = ({ keyData }) => {
+  console.log(keyData);
+  console.log(keyData.calorieCount);
+  console.log(keyData.proteinCount);
+  console.log(keyData.carbohydrateCount);
+  console.log(keyData.lipidCount);
 
-  useEffect(() => {
-    getUserInfo(userId).then((response) => {
-      const formattedUserData = new userDataModel(response.data);
-      setUser(formattedUserData);
-      setIsloading(true);
-      return response.data;
-    });
-  }, [userId]);
-
-  if (isLoading) {
-    console.log(user.keyData["calorieCount"]);
-  }
-
-
-  if(isLoading){
-    return <div>
-        <div>
-            <span>{user.keyData["calorieCount"]} Kcal</span>
-        </div>
-    </div>;
+  return (
+    <div>
+      <div>{/* <span>{user.keyData["calorieCount"]} Kcal</span> */}</div>
+    </div>
+  );
 };
-  }
-
 
 Nutrition.propTypes = {
-  userId: PropTypes.number.isRequired,
+  keyData: PropTypes.object.isRequired,
 };
 
 export default Nutrition;
