@@ -3,8 +3,8 @@ import "./Error.css";
 
 const Error = () => {
   return (
-    <div>
-      <h1>Oops ! Page not found</h1>
+    <div className="error__wrapper">
+      <h1 className="error__title">Oops ! Page not found</h1>
     </div>
   );
 };
