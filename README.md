@@ -36,3 +36,8 @@ If you want more details on Backend go [here](https://github.com/OpenClassrooms-
 2. CD in repository and `npm i` or `npm install` to install all packages
 3. Launch application with `npm start`
 4. Find the application `http://localhost:3001/`
+
+### Documentation
+
+1. npm run docs
+2. Find the docs `http://127.0.0.1:5500/docs/index.html`
