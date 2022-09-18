@@ -3,7 +3,6 @@ import "./Dashboard.css";
 import { useParams } from "react-router-dom";
 import { getUserInfo } from "../../services/Api";
 import { userDataModel } from "../../services/UserDataModel";
-import Error from "../404/Error";
 import Activity from "../../components/activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
@@ -47,8 +46,6 @@ const Dashboard = () => {
         </div>
       </main>
     );
-  } else if (user.id === undefined) {
-    return <Error />;
   }
 };
 
