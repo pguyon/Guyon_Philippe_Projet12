@@ -24,11 +24,7 @@ const Dashboard = () => {
     });
   }, [id]);
 
-  if (!isLoading) {
-    return <p></p>;
-  } else if (user === undefined) {
-    return <Error />;
-  } else {
+  if (isLoading) {
     return (
       <main className="dashboard__wrapper">
         <h1>
@@ -51,6 +47,8 @@ const Dashboard = () => {
         </div>
       </main>
     );
+  } else if (user.id === undefined) {
+    return <Error />;
   }
 };
 
