@@ -39,5 +39,6 @@ If you want more details on Backend go [here](https://github.com/OpenClassrooms-
 
 ### Documentation
 
-1. npm run docs
-2. Find the docs `http://127.0.0.1:5500/docs/index.html`
+1. cd docs and cd index.html
+2. start live server
+3. Find the docs `http://127.0.0.1:5500/docs/index.html`
