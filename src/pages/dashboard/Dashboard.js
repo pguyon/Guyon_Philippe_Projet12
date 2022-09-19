@@ -9,6 +9,15 @@ import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
 import Nutrition from "../../components/Nutrition/Nutrition";
 
+/**
+ * I'm using a custom hook to get the user's id from the url, then I'm using the id to get the user's
+ * data from an API, then I'm formatting the data and setting it to the user state, then I'm setting
+ * the isLoading state to true, then I'm returning the dashboard component.
+ * @type {function}
+ * @returns A React component.
+ * @author Philippe Guyon
+ * @version 1.0
+ */
 const Dashboard = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsloading] = useState(false);
