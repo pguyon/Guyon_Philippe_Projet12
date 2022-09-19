@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/navbar/verticalNav/VerticalNav.js</title>
+    <title>JSDoc: Source: components/loader/Loader.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/navbar/verticalNav/VerticalNav.js</h1>
+    <h1 class="page-title">Source: components/loader/Loader.js</h1>
 
     
 
@@ -27,34 +27,28 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import "./VerticalNav.css";
-import Yoga from "../../../assets/yoga.png";
-import Natation from "../../../assets/natation.png";
-import Cycling from "../../../assets/cycling.png";
-import Workout from "../../../assets/workout.png";
+import "./Loader.css";
 
 /**
- * Aside template
- * @returns 4 icons and a text
+ * It returns a div with a class of loading, which contains a div with a class of loading, which
+ * contains a div with a class of loading__one, which contains a div with a class of loading__two.
+ * @returns A React component.
  * @author Philippe Guyon
  * @version 1.0
  */
-
-const VerticalNav = () => {
-  const icons = [Yoga, Natation, Cycling, Workout];
+const Loader = () => {
   return (
-    &lt;aside className="vertical__wrapper">
-      &lt;nav className="vertical__nav">
-        {icons.map((icon, index) => (
-          &lt;img key={index} src={icon} alt="" />
-        ))}
-      &lt;/nav>
-      &lt;div className="vertical__span">Copyright, SportSee 2020&lt;/div>
-    &lt;/aside>
+    &lt;div className="loading">
+      &lt;div className="loading">
+        &lt;div className="loading__one">
+          &lt;div className="loading__two">&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
   );
 };
 
-export default VerticalNav;
+export default Loader;
 </code></pre>
         </article>
     </section>

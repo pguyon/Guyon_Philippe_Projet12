@@ -20,6 +20,8 @@ import Loader from "../loader/Loader";
  * @type {function}
  * @param {number} userId - users'id to fecth data from API
  * @return jsx
+ * @author Philippe Guyon
+ * @version 1.0
  */
 
 const Activity = ({ userId }) => {

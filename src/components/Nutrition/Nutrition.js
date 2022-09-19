@@ -6,9 +6,16 @@ import Fat from "../../assets/fat-icon.png";
 import Carb from "../../assets/carbs-icon.png";
 import Protein from "../../assets/protein-icon.png";
 
+/**
+ * It takes a prop called keyData, which is an object, and returns a React Fragment with four divs,
+ * each containing an image and a div with two spans.
+ * @type {function}
+ * @param {object} keyData
+ * @returns The return is a React Fragment.
+ */
 const Nutrition = ({ keyData }) => {
-  //   console.log(keyData.lipidCount);
-
+  /* Taking the calorieCount property of the keyData object, converting it to a string, and then taking
+the first character and adding a comma, and then taking the next five characters. */
   const cal =
     keyData.calorieCount.toString().substr(0, 1) +
     "," +
@@ -48,6 +55,7 @@ const Nutrition = ({ keyData }) => {
   );
 };
 
+/* A property of the Nutrition component that is used to validate the props of the component. */
 Nutrition.propTypes = {
   keyData: PropTypes.object.isRequired,
 };
