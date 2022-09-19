@@ -1,3 +1,7 @@
+/*
+creation of class to control the data retrieved with the requests
+*/
+
 export class userDataModel {
   constructor(data) {
     this.id = data.id;
