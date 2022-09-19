@@ -11,7 +11,9 @@ import Protein from "../../assets/protein-icon.png";
  * each containing an image and a div with two spans.
  * @type {function}
  * @param {object} keyData
- * @returns The return is a React Fragment.
+ * @returns A React component
+ * @author Philippe Guyon
+ * @version 1.0
  */
 const Nutrition = ({ keyData }) => {
   /* Taking the calorieCount property of the keyData object, converting it to a string, and then taking

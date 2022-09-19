@@ -11,6 +11,14 @@ import {
 import { getUserPerformance } from "../../services/Api";
 import { userDataPerformanceModel } from "../../services/UserDataModel";
 
+/**
+ * It takes a userId as a prop, fetches data from an API, formats the data, and then renders a chart
+ * @type {function}
+ * @param {number} userId
+ * @returns A React component
+ * @author Philippe Guyon
+ * @version 1.0
+ */
 const Performance = ({ userId }) => {
   const [userDataPerformance, setUserDataPerformance] = useState({});
   const [isLoading, setIsloading] = useState(false);
@@ -61,8 +69,9 @@ const Performance = ({ userId }) => {
   }
 };
 
+/* A prop type validation. It is checking that the prop `userId` is a number. */
 Performance.propTypes = {
   userId: PropTypes.number.isRequired,
-}
+};
 
 export default Performance;
