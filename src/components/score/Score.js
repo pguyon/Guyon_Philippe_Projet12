@@ -5,6 +5,14 @@ import { getUserInfo } from "../../services/Api";
 import { userDataModel } from "../../services/UserDataModel";
 import PropTypes from "prop-types";
 
+/**
+ * It's a React component that displays a pie chart with a percentage of the user's score.
+ * @type {function}
+ * @param {number} userId
+ * @returns The component is being returned.
+ * @author Philippe Guyon
+ * @version 1.0
+ */
 const Score = ({ userId }) => {
   const [user, setUser] = useState({});
   const [isLoading, setIsloading] = useState(false);
@@ -54,6 +62,7 @@ const Score = ({ userId }) => {
   }
 };
 
+/* It's a React component that displays a pie chart with a percentage of the user's score. */
 Score.propTypes = {
   userId: PropTypes.number.isRequired,
 };
