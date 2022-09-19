@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/performance/Performance.js</title>
+    <title>JSDoc: Source: components/score/Score.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/performance/Performance.js</h1>
+    <h1 class="page-title">Source: components/score/Score.js</h1>
 
     
 
@@ -27,82 +27,75 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
-import "./Performance.css";
+import "./Score.css";
+import { PieChart, Pie, ResponsiveContainer } from "recharts";
+import { getUserInfo } from "../../services/Api";
+import { userDataModel } from "../../services/UserDataModel";
 import PropTypes from "prop-types";
-import {
-  Radar,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  ResponsiveContainer,
-} from "recharts";
-import { getUserPerformance } from "../../services/Api";
-import { userDataPerformanceModel } from "../../services/UserDataModel";
 
 /**
- * It takes a userId as a prop, fetches data from an API, formats the data, and then renders a chart
+ * It's a React component that displays a pie chart with a percentage of the user's score.
  * @type {function}
  * @param {number} userId
- * @returns A React component
+ * @returns The component is being returned.
  * @author Philippe Guyon
  * @version 1.0
  */
-const Performance = ({ userId }) => {
-  const [userDataPerformance, setUserDataPerformance] = useState({});
+const Score = ({ userId }) => {
+  const [user, setUser] = useState({});
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
-    getUserPerformance(userId).then((response) => {
-      const formattedUserDataPerformance = new userDataPerformanceModel(
-        response.data
-      );
-      setUserDataPerformance(formattedUserDataPerformance);
+    getUserInfo(userId).then((response) => {
+      const formattedUserData = new userDataModel(response.data);
+      setUser(formattedUserData);
       setIsloading(true);
       return response.data;
     });
   }, [userId]);
 
-  const activities = userDataPerformance?.kind;
-  const userPerformance = userDataPerformance?.data;
-
-  const formattedData = userPerformance?.map((item) => {
-    return {
-      activity: activities[item.kind],
-      value: item.value,
-    };
-  });
+  const score = user?.todayScore;
+  const formatedData = [
+    {
+      name: "Score",
+      value: score,
+    },
+  ];
 
   if (isLoading) {
     return (
-      &lt;ResponsiveContainer width="100%">
-        &lt;RadarChart
-          outerRadius="62%"
-          data={formattedData.reverse()}
-          className="radar">
-          &lt;PolarGrid radialLines={false} />
-          &lt;PolarAngleAxis
-            dy={2}
-            dataKey="activity"
-            stroke="#FFF"
-            tickLine={false}
-            tick={{
-              fontSize: 12,
-              fontWeight: 500,
-            }}
-          />
-          &lt;Radar dataKey="value" fill="red" stroke="red" fillOpacity={0.6} />
-        &lt;/RadarChart>
-      &lt;/ResponsiveContainer>
+      &lt;section className="radial">
+        &lt;h3 className="title">Score&lt;/h3>
+        &lt;div className="label">
+          &lt;span className="score">{`${score ? score * 100 : "0"} %`}&lt;/span>
+          &lt;br /> de votre &lt;br /> objectif
+        &lt;/div>
+        &lt;ResponsiveContainer width="100%" height="100%">
+          &lt;PieChart>
+            &lt;Pie
+              data={formatedData}
+              dataKey="value"
+              nameKey="name"
+              fill="#FF0000"
+              innerRadius="60%"
+              outerRadius="70%"
+              startAngle={90}
+              endAngle={score ? 90 + score * 360 : 0}
+              cornerRadius={50}
+            />
+          &lt;/PieChart>
+        &lt;/ResponsiveContainer>
+      &lt;/section>
     );
   }
 };
 
 /* A prop type validation. It is checking that the prop `userId` is a number. */
-Performance.propTypes = {
+Score.propTypes = {
   userId: PropTypes.number.isRequired,
 };
 
-export default Performance;
+export default Score;
 </code></pre>
         </article>
     </section>

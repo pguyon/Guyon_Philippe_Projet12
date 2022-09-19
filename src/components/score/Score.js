@@ -62,7 +62,7 @@ const Score = ({ userId }) => {
   }
 };
 
-/* It's a React component that displays a pie chart with a percentage of the user's score. */
+/* A prop type validation. It is checking that the prop `userId` is a number. */
 Score.propTypes = {
   userId: PropTypes.number.isRequired,
 };

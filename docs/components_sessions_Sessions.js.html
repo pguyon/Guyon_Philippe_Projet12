@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/sessions/Sessions.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/sessions/Sessions.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import "./Sessions.css";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import { getUserAverage } from "../../services/Api";
+import { userDataAverageModel } from "../../services/UserDataModel";
+
+/**
+ * It's a React component that displays a chart
+ * @type {function}
+ * @param {number} userId - to fetch data from API
+ * @returns A React component.
+ * @author Philippe Guyon
+ * @version 1.0
+ */
+const Sessions = ({ userId }) => {
+  const [userDataSession, setUserDataSession] = useState({});
+  const [isLoading, setIsloading] = useState(false);
+
+  useEffect(() => {
+    getUserAverage(userId).then((response) => {
+      const formattedUserDataSession = new userDataAverageModel(response.data);
+      setUserDataSession(formattedUserDataSession);
+      setIsloading(true);
+      return response.data;
+    });
+  }, [userId]);
+
+  function CustomTooltip({ payload, active }) {
+    return (
+      &lt;div className="tooltip">
+        {active &amp;&amp; &lt;p>{`${payload[0].value}`} min&lt;/p>}
+      &lt;/div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      &lt;section>
+        &lt;h3 className="sessions__title">
+          Durée moyenne des &lt;br />
+          sessions
+        &lt;/h3>
+        &lt;ResponsiveContainer width="100%" height="100%">
+          &lt;LineChart
+            className="container"
+            data={userDataSession.sessions}
+            margin={{ top: 15, left: 15, right: 15, bottom: 10 }}>
+            &lt;XAxis
+              dataKey="day"
+              stroke="#FFF"
+              tickLine={false}
+              axisLine={false}
+              tick={{
+                fontSize: 12,
+                fontWeight: 500,
+              }}
+              tickFormatter={(item) => {
+                const days = ["L", "M", "M", "J", "V", "S", "D"];
+                return `${days[item - 1]}`;
+              }}
+            />
+            &lt;YAxis hide={true} padding={{ top: 80, bottom: 30 }} />
+            &lt;Tooltip
+              content={&lt;CustomTooltip />}
+              cursor={{
+                stroke: "#000",
+                strokeOpacity: 0.1,
+                strokeWidth: 40,
+              }}
+              labelStyle={{
+                display: "none",
+              }}
+              itemStyle={{
+                color: "#000",
+              }}
+            />
+            &lt;Line
+              type="monotone"
+              dataKey="sessionLength"
+              stroke="#FFF"
+              strokeWidth={1.5}
+              dot={false}
+              activeDot={{
+                stroke: "#FFF",
+                strokeOpacity: 0.4,
+                strokeWidth: 10,
+              }}
+            />
+          &lt;/LineChart>
+        &lt;/ResponsiveContainer>
+      &lt;/section>
+    );
+  }
+};
+
+/* A prop type validation.*/
+Sessions.propTypes = {
+  userId: PropTypes.number.isRequired,
+  payload: PropTypes.object,
+  active: PropTypes.bool,
+};
+
+export default Sessions;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="userDataActivityModel.html">userDataActivityModel</a></li><li><a href="userDataAverageModel.html">userDataAverageModel</a></li><li><a href="userDataModel.html">userDataModel</a></li><li><a href="userDataPerformanceModel.html">userDataPerformanceModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverage">getUserAverage</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HorizontalNav">HorizontalNav</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Nutrition">Nutrition</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Sep 19 2022 15:23:52 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

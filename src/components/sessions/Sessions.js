@@ -12,6 +12,14 @@ import {
 import { getUserAverage } from "../../services/Api";
 import { userDataAverageModel } from "../../services/UserDataModel";
 
+/**
+ * It's a React component that displays a chart
+ * @type {function}
+ * @param {number} userId - to fetch data from API
+ * @returns A React component.
+ * @author Philippe Guyon
+ * @version 1.0
+ */
 const Sessions = ({ userId }) => {
   const [userDataSession, setUserDataSession] = useState({});
   const [isLoading, setIsloading] = useState(false);
@@ -93,6 +101,7 @@ const Sessions = ({ userId }) => {
   }
 };
 
+/* A prop type validation.*/
 Sessions.propTypes = {
   userId: PropTypes.number.isRequired,
   payload: PropTypes.object,
