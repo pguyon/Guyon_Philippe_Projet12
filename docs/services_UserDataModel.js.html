@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: pages/home/Home.js</title>
+    <title>JSDoc: Source: services/UserDataModel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: pages/home/Home.js</h1>
+    <h1 class="page-title">Source: services/UserDataModel.js</h1>
 
     
 
@@ -26,36 +26,54 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import "./Home.css";
-import { Link } from "react-router-dom";
-import Karl from "../../assets/karl.png";
-import Cecilia from "../../assets/cecilia.png";
+            <pre class="prettyprint source linenums"><code>/*
+creation of class to control the data retrieved with the requests
+*/
 
 /**
- * It returns a section with two divs, each containing a link to a different dashboard
- * @returns A React component
- * @author Philippe Guyon
- * @version 1.0
- */
-const Home = () => {
-  return (
-    &lt;section className="home__wrapper">
-      &lt;div className="home__content">
-        &lt;Link to="/dashboard/12">
-          &lt;img src={Karl} alt="Karl avatar" />
-        &lt;/Link>
-      &lt;/div>
-      &lt;div className="home__content">
-        &lt;Link to="/dashboard/18">
-          &lt;img src={Cecilia} alt="Cecilia avatar" />
-        &lt;/Link>
-      &lt;/div>
-    &lt;/section>
-  );
-};
+* The userDataModel class is a constructor function that takes a data object as an argument and
+assigns the properties of that object to the userDataModel instance.
+* @param {Object} - id, userInfos score and keyData
+* @author Philippe Guyon
+* @version 1.0
+*/
+export class userDataModel {
+  constructor(data) {
+    this.id = data.id;
+    this.userInfos = data.userInfos;
+    if (data.score) {
+      this.todayScore = data.score;
+    } else if (data.todayScore) {
+      this.todayScore = data.todayScore;
+    }
+    this.keyData = data.keyData;
+  }
+}
 
-export default Home;
+export class userDataActivityModel {
+  constructor(data) {
+    this.userId = data.userId;
+    this.sessions = data.sessions;
+    for (let i = 0; i &lt; this.sessions.length; i++) {
+      this.sessions[i].day = i + 1;
+    }
+  }
+}
+
+export class userDataPerformanceModel {
+  constructor(data) {
+    this.userId = data.userId;
+    this.kind = data.kind;
+    this.data = data.data;
+  }
+}
+
+export class userDataAverageModel {
+  constructor(data) {
+    this.userId = data.userId;
+    this.sessions = data.sessions;
+  }
+}
 </code></pre>
         </article>
     </section>

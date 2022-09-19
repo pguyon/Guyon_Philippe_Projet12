@@ -2,6 +2,13 @@
 creation of class to control the data retrieved with the requests
 */
 
+/**
+* The userDataModel class is a constructor function that takes a data object as an argument and
+assigns the properties of that object to the userDataModel instance.
+* @param {Object} - id, userInfos score and keyData
+* @author Philippe Guyon
+* @version 1.0
+*/
 export class userDataModel {
   constructor(data) {
     this.id = data.id;
