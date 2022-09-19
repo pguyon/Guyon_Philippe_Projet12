@@ -1,4 +1,32 @@
-import React, { useState, useEffect } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/activity/Activity.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/activity/Activity.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
 import "./Activity.css";
 import {
   BarChart,
@@ -48,10 +76,10 @@ const Activity = ({ userId }) => {
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (
-        <div className="hover__activity">
-          <p>{`${payload[0].value}`}kg</p>
-          <p>{`${payload[1].value}`}KCal</p>
-        </div>
+        &lt;div className="hover__activity">
+          &lt;p>{`${payload[0].value}`}kg&lt;/p>
+          &lt;p>{`${payload[1].value}`}KCal&lt;/p>
+        &lt;/div>
       );
     }
     return null;
@@ -72,25 +100,25 @@ const Activity = ({ userId }) => {
   }
 
   if (!isLoading) {
-    return <Loader />;
+    return &lt;Loader />;
   } else {
     return (
-      <section className="activity__wrapper">
-        <div className="activity__title">
-          <h3>Activité quotidienne</h3>
-          <div className="wrapper">
-            <div className="content">
-              <div className="black__bullet"></div>
-              <span>Poids (kg)</span>
-            </div>
-            <div className="content">
-              <div className="red__bullet"></div>
-              <span>Calories brûlées (kCal)</span>
-            </div>
-          </div>
-        </div>
-        <ResponsiveContainer width="100%" height="80%">
-          <BarChart
+      &lt;section className="activity__wrapper">
+        &lt;div className="activity__title">
+          &lt;h3>Activité quotidienne&lt;/h3>
+          &lt;div className="wrapper">
+            &lt;div className="content">
+              &lt;div className="black__bullet">&lt;/div>
+              &lt;span>Poids (kg)&lt;/span>
+            &lt;/div>
+            &lt;div className="content">
+              &lt;div className="red__bullet">&lt;/div>
+              &lt;span>Calories brûlées (kCal)&lt;/span>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;ResponsiveContainer width="100%" height="80%">
+          &lt;BarChart
             width="100%"
             height="75%"
             barGap={8}
@@ -101,7 +129,7 @@ const Activity = ({ userId }) => {
               left: 20,
               bottom: 5,
             }}>
-            <CartesianGrid
+            &lt;CartesianGrid
               vertical={false}
               strokeDasharray="1"
               style={{
@@ -109,7 +137,7 @@ const Activity = ({ userId }) => {
                 margin: "0",
               }}
             />
-            <XAxis
+            &lt;XAxis
               tickMargin={10}
               tickLine={false}
               padding={{
@@ -124,7 +152,7 @@ const Activity = ({ userId }) => {
               dataKey="day"
               tickFormatter={FormatDate}
             />
-            <YAxis
+            &lt;YAxis
               yAxisId="kilogram"
               dataKey="kilogram"
               orientation="right"
@@ -140,32 +168,32 @@ const Activity = ({ userId }) => {
               dx={45}
               scale="auto"
             />
-            <YAxis yAxisId="calories" dataKey="calories" hide={true} />
-            <Tooltip
+            &lt;YAxis yAxisId="calories" dataKey="calories" hide={true} />
+            &lt;Tooltip
               position={{ y: -25 }}
-              content={<CustomTooltip />}
+              content={&lt;CustomTooltip />}
               cursor={{
                 background: "#C4C4C4",
                 opacity: 0.5,
               }}
             />
-            <Bar
+            &lt;Bar
               dataKey="kilogram"
               yAxisId="kilogram"
               fill="#282D30"
               barSize={7.5}
               radius={[50, 50, 0, 0]}
             />
-            <Bar
+            &lt;Bar
               dataKey="calories"
               yAxisId="calories"
               fill="#E60000"
               barSize={7.5}
               radius={[50, 50, 0, 0]}
             />
-          </BarChart>
-        </ResponsiveContainer>
-      </section>
+          &lt;/BarChart>
+        &lt;/ResponsiveContainer>
+      &lt;/section>
     );
   }
 };
@@ -177,3 +205,26 @@ Activity.propTypes = {
 };
 
 export default Activity;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="userDataActivityModel.html">userDataActivityModel</a></li><li><a href="userDataAverageModel.html">userDataAverageModel</a></li><li><a href="userDataModel.html">userDataModel</a></li><li><a href="userDataPerformanceModel.html">userDataPerformanceModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverage">getUserAverage</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HorizontalNav">HorizontalNav</a></li><li><a href="global.html#VerticalNav">VerticalNav</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Sep 19 2022 15:05:48 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
