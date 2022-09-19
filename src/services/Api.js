@@ -74,6 +74,13 @@ export const getUserActivity = async (id) => {
   }
 };
 
+/**
+ * @type {function}
+ * @param {number} id - the user id
+ * @returns {Promise<Object>} - The response object is being returned.
+ * @author Philippe Guyon
+ * @version 1.0
+ */
 export const getUserAverage = async (id) => {
   try {
     const response = await instance.get(`/${id}/average-sessions`);
@@ -94,6 +101,15 @@ export const getUserAverage = async (id) => {
   }
 };
 
+/**
+ * It's an async function that returns a response from an API call or a mock data if the API call
+ * fails.
+ * @type {function}
+ * @param {number} id - the user id
+ * @returns {Promise<Object>} - The response object is being returned.
+ * @author Philippe Guyon
+ * @version 1.0
+ */
 export const getUserPerformance = async (id) => {
   try {
     const response = await instance.get(`/${id}/performance`);
